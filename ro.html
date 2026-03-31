@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollIntoView</title>
+    <style>
+        body {
+            height: 2000px; /* чтобы была прокрутка */
+        }
+        #target {
+            margin-top: 1500px;
+            padding: 20px;
+            background: rgb(155, 248, 152);
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn1">Вверх (start)</button>
+<button id="btn2">Вниз (end)</button>
+<button id="btn3">Плавно центр</button>
+
+<div id="target">Объект</div>
+
+<script>
+let elem = document.getElementById('target');
+
+document.getElementById('btn1').onclick = function() {
+    elem.scrollIntoView(true); // элемент сверху
+};
+
+document.getElementById('btn2').onclick = function() {
+    elem.scrollIntoView(false); // элемент снизу
+};
+
+document.getElementById('btn3').onclick = function() {
+    elem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+    });
+};
+</script>
+
+</body>
+</html>
